@@ -91,8 +91,6 @@ const NoteCard = ({ images, columns = 4, gap = "1.25rem", renderText }) => {
 
   const closeStyle = {
     position: "absolute",
-    top: "0.25rem",
-    left: "0.25rem",
     cursor: "pointer",
     background: "transparent",
     padding: 0,

@@ -96,12 +96,9 @@ const NotesPage = () => {
       />
 
 
-      <a
-        href="#top"
-        className="flex w-full justify-center items-center scroll-smooth"
-      >
+      <button className="flex w-full justify-center mt-2 md:mt-10 text-3xl md:text-5xl items-center scroll-smooth">
         <Up />
-      </a>
+      </button>
 
     </div>
   );

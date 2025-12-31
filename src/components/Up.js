@@ -1,6 +1,5 @@
-// RandomCloseButton.jsx
 import { useState } from "react";
-import { FaCaretDown } from "react-icons/fa6";
+import { FaCaretUp } from "react-icons/fa6";
 
 // Color pool for random hover
 const colors = [
@@ -11,19 +10,23 @@ const colors = [
 
 const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
 
-const Close = ({ onClick, className, size = "3xl", position = "absolute top-2 left-2" }) => {
+const Close = ({ className }) => {
   const [hover, setHover] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div
-      onClick={onClick}
+      onClick={scrollToTop}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className={`${position} text-${size} font-bold ${className || ""}`}
-      style={{ color: hover ? getRandomColor() : "#fff" }}
-      aria-label="Close"
+      className={`text-5xl font-bold cursor-pointer ${className || ""}`}
+      style={{ color: hover ? getRandomColor() : "#000" }}
+      aria-label="Scroll to Top"
     >
-      <FaCaretDown />
+      <FaCaretUp />
     </div>
   );
 };

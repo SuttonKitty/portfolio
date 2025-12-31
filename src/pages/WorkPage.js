@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import WorkContent from "../components/WorkContent";
-import { FaCaretUp } from "react-icons/fa6";
+import Up from "../components/Up";
 
 const WorkPage = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -39,16 +39,15 @@ const WorkPage = () => {
   const handleClick = (project) => setActiveProject(project);
 
   return (
-    <div className="flex flex-col md:p-10 w-full items-center text-lg relative">
+    <div className="flex flex-col md:p-10 w-full items-center text-lg relative text-gray">
       {projects.map((project) => (
         <div key={project.id} className="w-auto mx-auto font-[monospace]">
           <button
             onClick={() => handleClick(project)}
-            className="cursor-pointer w-fit mx-auto block text-left"
-            style={{ color: "black" }}
+            className="cursor-pointer w-fit mx-auto block text-left font-[monospace]"
           >
-            <span>{project.title.split(" ")[0]} </span>
-            <span className="underline decoration-dotted">
+            <span className="text-[gray]">{project.title.split(" ")[0]} </span>
+            <span className="underline decoration-dotted text-[#0F0E0E]">
               {project.title.split(" ").slice(1).join(" ")}
             </span>
           </button>
@@ -64,12 +63,9 @@ const WorkPage = () => {
         />
       )}
 
-      <a
-        href="/"
-        className="flex w-full justify-center mt-2 md:mt-10 text-3xl md:text-5xl items-center scroll-smooth "
-      >
-        <FaCaretUp />
-      </a>
+      <button className="flex w-full justify-center mt-2 md:mt-10 text-3xl md:text-5xl items-center scroll-smooth">
+        <Up />
+      </button>
     </div>
   );
 };
