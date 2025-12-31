@@ -25,8 +25,8 @@ function App() {
       <div className="flex flex-col w-full items-center">
         <Routes>
           <Route path="/" element={<HemPage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/notes" element={<NotesPage />} />
+          <Route path="/work/" element={<WorkPage />} />
+          <Route path="/notes/" element={<NotesPage />} />
         </Routes>
       </div>
 
