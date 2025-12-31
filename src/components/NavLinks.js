@@ -4,7 +4,7 @@ const NavLinks = ({ links }) => {
   return (
     <nav className="flex flex-row gap-10 w-auto">
       <NavLink
-        to="/"
+        to="/hem"
         className={({ isActive }) =>
           isActive ? 'underline decoration-dotted' : ''
         }
@@ -13,7 +13,7 @@ const NavLinks = ({ links }) => {
       </NavLink>
 
       <NavLink
-        to="/work/"
+        to="/work"
         className={({ isActive }) =>
           isActive ? 'underline decoration-dotted' : ''
         }
@@ -22,7 +22,7 @@ const NavLinks = ({ links }) => {
       </NavLink>
 
       <NavLink
-        to="/notes/"
+        to="/notes"
         className={({ isActive }) =>
           isActive ? 'underline decoration-dotted' : ''
         }
