@@ -1,5 +1,6 @@
-// NoteCard.js
 import { useState, useEffect } from "react";
+
+import { FaPlay } from "react-icons/fa";
 
 import Close from "./Close";
 
@@ -28,16 +29,31 @@ const NoteCard = ({ images, columns = 4, gap = "1.25rem", renderText }) => {
     padding: 0,
   };
 
-  const itemStyle = (index) => ({
+  const itemContainerStyle = {
+    position: "relative",
+    marginBottom: gap,
+    borderRadius: "0.25rem",
+    overflow: "hidden",
+    display: "block",
+  };
+
+  const mediaStyle = (index) => ({
     width: "100%",
     display: "block",
     cursor: "pointer",
-    marginBottom: gap,
-    borderRadius: "0.25rem",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.15)",
     filter: hoveredIndex === index ? "grayscale(0%)" : "grayscale(100%)",
     transition: "filter 0.1s ease",
   });
+
+  const playIconStyle = {
+    position: "absolute",
+    top: "0.75rem",
+    right: "0.75rem",
+    color: "white",
+    fontSize: "1rem",
+    pointerEvents: "none", // lets click pass through to video
+    textShadow: "0 0 5px rgba(0,0,0,0.7)",
+  };
 
   const overlayStyle = {
     position: "fixed",
@@ -81,37 +97,40 @@ const NoteCard = ({ images, columns = 4, gap = "1.25rem", renderText }) => {
     background: "transparent",
     padding: 0,
     lineHeight: 1,
-    // mixBlendMode: "difference",
   };
 
   return (
     <div style={{ width: "100%" }} className="font-[monospace]">
       <div style={gridStyle}>
-        {images.map((item, index) =>
-          item.videoSrc ? (
-            <video
-              key={index}
-              src={item.videoSrc}
-              style={itemStyle(index)}
-              onClick={() => setActiveItem(item)}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              muted
-              loop
-              playsInline
-            />
-          ) : (
-            <img
-              key={index}
-              src={item.src}
-              alt={item.alt || ""}
-              style={itemStyle(index)}
-              onClick={() => setActiveItem(item)}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            />
-          )
-        )}
+        {images.map((item, index) => (
+          <div
+            key={index}
+            style={itemContainerStyle}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {item.videoSrc ? (
+              <>
+                <video
+                  src={item.videoSrc}
+                  style={mediaStyle(index)}
+                  onClick={() => setActiveItem(item)}
+                  muted
+                  loop
+                  playsInline
+                />
+                <FaPlay style={playIconStyle} />
+              </>
+            ) : (
+              <img
+                src={item.src}
+                alt={item.alt || ""}
+                style={mediaStyle(index)}
+                onClick={() => setActiveItem(item)}
+              />
+            )}
+          </div>
+        ))}
       </div>
 
       {activeItem && (
