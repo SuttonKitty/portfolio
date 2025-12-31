@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import NoteContent from "../components/WorkContent";
+import WorkContent from "../components/WorkContent";
 import { FaCaretUp } from "react-icons/fa6";
 
 const WorkPage = () => {
@@ -56,7 +56,7 @@ const WorkPage = () => {
       ))}
 
       {activeProject && (
-        <NoteContent
+        <WorkContent
           title={activeProject.title.replace(/^\d+\.\s*/, "")}
           titleColor="black"
           onClose={() => setActiveProject(null)}
