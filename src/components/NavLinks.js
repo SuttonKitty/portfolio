@@ -1,11 +1,34 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const NavLinks = ({ links }) => {
   return (
-    <nav>
-      <Link to="/">hem</Link> |
-      <Link to="/work"> work</Link> |
-      <Link to="/notes"> notes</Link>
+    <nav className="flex flex-row gap-10 w-auto">
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? 'underline decoration-dotted' : ''
+        }
+      >
+        hem
+      </NavLink>
+
+      <NavLink
+        to="/work"
+        className={({ isActive }) =>
+          isActive ? 'underline decoration-dotted' : ''
+        }
+      >
+        work
+      </NavLink>
+
+      <NavLink
+        to="/notes"
+        className={({ isActive }) =>
+          isActive ? 'underline decoration-dotted' : ''
+        }
+      >
+        notes
+      </NavLink>
     </nav>
   )
 }
