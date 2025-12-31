@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.888d2b4e.css",
+    "main.js": "/static/js/main.5825a338.js",
+    "static/media/moss.png": "/static/media/moss.4a817005f172af11f723.png",
+    "static/media/fish.JPG": "/static/media/fish.b37540037bd40b6ee36b.JPG",
+    "static/media/fortGreene.jpeg": "/static/media/fortGreene.f88e11e62fab34f12879.jpeg",
+    "static/media/windowImg.JPG": "/static/media/windowImg.433416543a166f6121c1.JPG",
+    "static/media/tug.jpeg": "/static/media/tug.2f14a0035148d87da01c.jpeg",
+    "static/media/eye.jpeg": "/static/media/eye.0828a6a3c69355978117.jpeg",
+    "static/media/deer.mov": "/static/media/deer.0afca468e0a749811861.mov",
+    "static/media/rocks.JPG": "/static/media/rocks.a4992a2af318a457a94e.JPG",
+    "static/media/belaLooks.JPG": "/static/media/belaLooks.9e7e798ec35d75ee16a5.JPG",
+    "static/media/bela.jpeg": "/static/media/bela.1531c0507e645799707d.jpeg",
+    "static/media/SuttonFritz_CV.pdf": "/static/media/SuttonFritz_CV.22c1eb5126b56769c71b.pdf",
+    "static/media/self.jpeg": "/static/media/self.bf073ff191bbdeb84bdc.jpeg",
+    "static/media/belabw.jpeg": "/static/media/belabw.ce3057caa59b68f00ff4.jpeg",
+    "static/media/apt.md": "/static/media/apt.d4a5ae23284e1c18eb32.md",
+    "index.html": "/index.html",
+    "main.888d2b4e.css.map": "/static/css/main.888d2b4e.css.map",
+    "main.5825a338.js.map": "/static/js/main.5825a338.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.888d2b4e.css",
+    "static/js/main.5825a338.js"
+  ]
+}
