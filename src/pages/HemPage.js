@@ -3,8 +3,8 @@ import Heja from '../components/Heja';
 
 const HemPage = () => {
   return (
-    <div className="flex md:p-10 w-auto items-center font-[monospace] md:w-[60%]">
-      <div className="flex flex-col gap-2 items-center text-sm md:text-base text-justify">
+    <div className="flex md:p-10 w-auto items-center font-[monospace] text-justify md:w-[60%]">
+      <div className="flex flex-col gap-2 items-center text-sm md:text-base">
         <Heja />
 
         <div>
