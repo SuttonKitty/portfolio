@@ -87,14 +87,14 @@ const WorkContent = ({ title, onClose }) => {
       onClick={onClose} // click outside closes popup
     >
       <div
-        className="relative w-[98%] md:w-[50%] h-[90%] bg-white rounded-md flex flex-col overflow-auto"
+        className="relative w-[98%] md:w-[50%] h-[90%] bg-[#F7F7F2] flex flex-col overflow-auto rounded-md"
         onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
       >
         {/* Use the reusable RandomCloseButton */}
         <Close onClick={onClose} />
 
         {/* Markdown Content */}
-        <div className="flex-1 overflow-auto font-[georgia] text-sm p-2 pt-6 md:text-xl">
+        <div className="flex-1 overflow-auto text-sm p-2 pt-6 md:text-xl">
           <ReactMarkdown
             children={content}
             remarkPlugins={[remarkGfm]}

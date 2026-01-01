@@ -1,6 +1,6 @@
 // RandomCloseButton.jsx
 import { useState, useEffect, useRef } from "react";
-import { FaCaretDown } from "react-icons/fa6";
+import { IoIosClose } from "react-icons/io";
 
 // Color pool for random hover
 const colors = [
@@ -28,10 +28,10 @@ const getContrastColor = (bgColor) => {
   }
 
   const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-  return brightness > 128 ? "#000" : "#fff";
+  return brightness > 128 ? "#000" : "#F7F7F2";
 };
 
-const Close = ({ onClick, className, size = "3xl", position = "absolute top-2 left-2" }) => {
+const Close = ({ onClick, className, size = "3xl", position = "absolute top-2 left-0.5" }) => {
   const [hover, setHover] = useState(false);
   const [color, setColor] = useState("#000");
   const buttonRef = useRef(null);
@@ -56,7 +56,7 @@ const Close = ({ onClick, className, size = "3xl", position = "absolute top-2 le
       style={{ color: hover ? getRandomColor() : color }}
       aria-label="Close"
     >
-      <FaCaretDown />
+      <IoIosClose />
     </div>
   );
 };

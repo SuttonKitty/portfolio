@@ -2,41 +2,47 @@ import { useState, useEffect } from "react";
 import WorkContent from "../components/WorkContent";
 import Up from "../components/Up";
 
+const colors = [
+  "#C62828", "#EF6C00", "#F9A825", "#2E7D32", "#00838F",
+  "#1565C0", "#6A1B9A", "#AD1457", "#E64A19", "#009688",
+  "#283593", "#880E4F", "#689F38", "#D84315", "#00796B"
+];
+
 const WorkPage = () => {
   const [activeProject, setActiveProject] = useState(null);
+  const [linkColors, setLinkColors] = useState({});
 
-  // Lock background scroll when popup is active
+  // Load colors from localStorage on mount
   useEffect(() => {
-    if (activeProject) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
+    const savedColors = localStorage.getItem("workLinkColors");
+    if (savedColors) {
+      setLinkColors(JSON.parse(savedColors));
     }
-    return () => {
-      document.body.style.overflow = "auto"; // cleanup on unmount
-    };
+  }, []);
+
+  // Save colors to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("workLinkColors", JSON.stringify(linkColors));
+  }, [linkColors]);
+
+  useEffect(() => {
+    document.body.style.overflow = activeProject ? "hidden" : "auto";
+    return () => { document.body.style.overflow = "auto"; };
   }, [activeProject]);
 
-  const projects = [
-    { id: 1, title: "01. Lorem" },
-    { id: 2, title: "02. Lorem" },
-    { id: 3, title: "03. Lorem" },
-    { id: 4, title: "04. Lorem" },
-    { id: 5, title: "05. Lorem" },
-    { id: 6, title: "06. Lorem" },
-    { id: 7, title: "07. Lorem" },
-    { id: 8, title: "08. Lorem" },
-    { id: 9, title: "09. Lorem" },
-    { id: 10, title: "10. Lorem" },
-    { id: 11, title: "11. Lorem" },
-    { id: 12, title: "12. Lorem" },
-    { id: 13, title: "13. Lorem" },
-    { id: 14, title: "14. Lorem" },
-    { id: 15, title: "15. Lorem" },
-    { id: 16, title: "16. Lorem" },
-  ];
+  const projects = Array.from({ length: 16 }, (_, i) => ({
+    id: i + 1,
+    title: `${String(i + 1).padStart(2, "0")}. Lorem`
+  }));
 
-  const handleClick = (project) => setActiveProject(project);
+  const handleClick = (project) => {
+    setLinkColors(prev => ({
+      ...prev,
+      [project.id]: prev[project.id] || colors[Math.floor(Math.random() * colors.length)]
+    }));
+
+    setActiveProject(project);
+  };
 
   return (
     <div className="flex flex-col md:p-10 w-full items-center text-lg relative text-gray">
@@ -47,7 +53,10 @@ const WorkPage = () => {
             className="cursor-pointer w-fit mx-auto block text-left font-[monospace]"
           >
             <span className="text-[gray]">{project.title.split(" ")[0]} </span>
-            <span className="underline decoration-dotted text-[#0F0E0E]">
+            <span
+              className="underline decoration-dotted"
+              style={{ color: linkColors[project.id] || "#0F0E0E" }}
+            >
               {project.title.split(" ").slice(1).join(" ")}
             </span>
           </button>
@@ -57,9 +66,8 @@ const WorkPage = () => {
       {activeProject && (
         <WorkContent
           title={activeProject.title.replace(/^\d+\.\s*/, "")}
-          titleColor="black"
           onClose={() => setActiveProject(null)}
-          className="font-[times-new-roman] max-h-[80vh] overflow-y-auto"
+          className=" max-h-[80vh] overflow-y-auto radius-md"
         />
       )}
 
