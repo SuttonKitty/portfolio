@@ -2,49 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Inter font */
+/* Import Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/* Global Styles */
-html, body {
+/* ROOT */
+html {
   background-color: #F7F7F2;
+  height: 100%;
+}
+
+/* BODY */
+body {
+  min-height: 100svh; /* ✅ iOS-safe viewport */
+  background-color: #F7F7F2;
+
+  margin: 0; /* ❗ remove margin */
+  padding:
+    calc(env(safe-area-inset-top) + 3rem)
+    calc(env(safe-area-inset-right) + 1rem)
+    calc(env(safe-area-inset-bottom) + 1rem)
+    calc(env(safe-area-inset-left) + 1rem);
+
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  margin: 0;
-  padding: 0;
 
-  /* Add safe area support for iPhones with notch */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-}
-
-/* Ensure the root container also fills the safe area */
-#root {
-  min-height: 100vh;
-  background-color: #F7F7F2;
-}
-
-
-body {
-  margin: 3rem 1rem 1rem 1rem;
-  background-color: #F7F7F2;
-  scroll-behavior: smooth;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
-/* Ensure Tailwind base uses Inter too */
+/* ROOT CONTAINER */
+#root {
+  min-height: 100%;
+  background-color: #F7F7F2;
+}
+
+/* Tailwind base font */
 @layer base {
   html {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   }
-}
-
-code {
-  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 /* Loader */
@@ -53,41 +49,18 @@ code {
   inset: 0;
   background-color: #F7F7F2;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  font-family: monospace;
 }
 
-.spinner {
-  width: 32px;
-  height: 32px;
-  border: 2px solid #ccc;
-  border-top: 2px solid #FF6235;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 1rem;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.loading-text {
-  font-size: 0.8rem;
-  color: gray;
-  letter-spacing: 0.05em;
-}
-
-/* Theme classes */
+/* Themes */
 .light {
-  background: white;
+  background-color: #F7F7F2;
   color: black;
 }
 
 .dark {
-  background: #0f0f0f;
+  background-color: #0f0f0f;
   color: white;
 }
-
