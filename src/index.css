@@ -6,6 +6,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* Global Styles */
+html, body {
+  background-color: #F7F7F2;
+  overscroll-behavior: contain; /* Prevent pull-to-refresh color bleed */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   margin: 3rem 1rem 1rem 1rem;
   color: #0F0E0E;

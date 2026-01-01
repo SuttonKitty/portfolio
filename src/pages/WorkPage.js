@@ -67,7 +67,7 @@ const WorkPage = () => {
         <WorkContent
           title={activeProject.title.replace(/^\d+\.\s*/, "")}
           onClose={() => setActiveProject(null)}
-          className=" max-h-[80vh] overflow-y-auto radius-md"
+          className=" max-h-[80vh] overflow-y-auto"
         />
       )}
 
