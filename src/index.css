@@ -8,10 +8,22 @@
 /* Global Styles */
 html, body {
   background-color: #F7F7F2;
-  overscroll-behavior: contain; /* Prevent pull-to-refresh color bleed */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   margin: 0;
   padding: 0;
+
+  /* Add safe area support for iPhones with notch */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Ensure the root container also fills the safe area */
+#root {
+  min-height: 100vh;
+  background-color: #F7F7F2;
 }
 
 
