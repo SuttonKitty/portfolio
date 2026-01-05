@@ -56,7 +56,7 @@ const Close = ({ onClick, className, size = "3xl", position = "absolute top-2 le
       style={{ color: hover ? getRandomColor() : color }}
       aria-label="Close"
     >
-      <IoIosClose />
+      <b><IoIosClose /></b>
     </div>
   );
 };

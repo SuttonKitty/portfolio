@@ -8,7 +8,7 @@ const Heja = () => {
   // Shuffle colors array
   const shuffledColors = [...colors].sort(() => Math.random() - 0.5);
 
-  const text = "Heja och Välkommen!";
+  const text = "Välkommen!";
 
   return (
     <div className="md:text-xl text-lg text-black pb-2 font-semibold">
