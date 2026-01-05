@@ -10,9 +10,9 @@ html, body {
   background-color: #F7F7F2;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  height: auto;
   margin: 0;
   padding: 0;
+  min-height: 100%;
 
   /* Add safe area support for iPhones with notch */
   padding-top: env(safe-area-inset-top);
@@ -24,6 +24,11 @@ html, body {
 /* Ensure the root container also fills the safe area */
 #root {
   min-height: 100vh;
+  background-color: #F7F7F2;
+}
+
+.app {
+  min-height: 100dvh;
   background-color: #F7F7F2;
 }
 
