@@ -31,7 +31,7 @@ const getContrastColor = (bgColor) => {
   return brightness > 128 ? "#000" : "#F7F7F2";
 };
 
-const Close = ({ onClick, className, size = "3xl", position = "absolute" }) => {
+const Close = ({ onClick, className="w-full", size = "3xl", position = "absolute" }) => {
   const [hover, setHover] = useState(false);
   const [color, setColor] = useState("#000");
   const buttonRef = useRef(null);
