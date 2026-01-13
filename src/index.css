@@ -12,7 +12,7 @@ html, body {
   -webkit-overflow-scrolling: touch;
   margin: 0;
   padding: 0;
-  min-height: 100%;
+  height: auto;
 
   /* Add safe area support for iPhones with notch */
   padding-top: env(safe-area-inset-top);

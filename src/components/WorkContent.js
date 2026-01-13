@@ -94,7 +94,7 @@ const WorkContent = ({ title, onClose }) => {
         <Close onClick={onClose} />
 
         {/* Markdown Content */}
-        <div className="flex-1 overflow-auto text-sm p-2 pt-6 md:text-xl">
+        <div className="flex-1 overflow-auto font-[monospace] text-sm md:text-base p-2 pt-6 md:text-xl">
           <ReactMarkdown
             children={content}
             remarkPlugins={[remarkGfm]}
